@@ -1,6 +1,6 @@
-const SUPABASE_URL = 'https://nwxkvnsiwauieanvbiri.supabase.co';
+const SUPABASE_URL = 'https://jojlzgvqavrarvjmcooh.supabase.co';
 const SUPABASE_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNzAwMzQzNCwiZXhwIjoxOTUyNTc5NDM0fQ.8XIsU0FANdaNeQnT-DojpTL-GTlTPZ4CYZDEetpFpWc';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impvamx6Z3ZxYXZyYXJ2am1jb29oIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQyOTU2NjcsImV4cCI6MTk3OTg3MTY2N30.s3IqhgmffpidIKEi2tsx5pe8FPnLZg3t5D8z2Fh_I3M';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
@@ -32,10 +32,18 @@ export async function signOutUser() {
 // > Part B: Export async function that
 //      - inserts (creates) a supplied pet argument into supabase
 //      - returns a single data object (not an array)
+export async function createPet(pet) {
+    const response = client.from('pets').insert(pet).single();
+    return response;
+}
 
 // > Part C: Export async function that
 //      - gets all pets from supabase
 //      - order the list by created date
+export async function getPets() {
+    const response = await client.from('pets').select('*').limit('100').order('created_at');
+    return response;
+}
 
 /* Storage Functions */
 
