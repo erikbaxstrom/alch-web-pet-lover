@@ -40,6 +40,10 @@ export async function createPet(pet) {
 // > Part C: Export async function that
 //      - gets all pets from supabase
 //      - order the list by created date
+export async function getPets() {
+    const response = await client.from('pets').select('*').limit('100').order('created_at');
+    return response;
+}
 
 /* Storage Functions */
 
