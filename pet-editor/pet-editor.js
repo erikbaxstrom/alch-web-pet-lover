@@ -43,7 +43,6 @@ petForm.addEventListener('submit', async (e) => {
         image_url: url,
     };
     const response = await createPet(pet);
-    console.log(response);
     // > Part B:
     //    - call function to create the pet in the database
     //    - store the error and pets state from the response

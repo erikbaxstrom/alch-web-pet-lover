@@ -20,11 +20,9 @@ window.addEventListener('load', async () => {
     //    - store the error and pets state from the response
     //    - either display the error or the pets
     const response = await getPets();
-    console.log(response);
 
     error = response.error;
-    pets = response.pets;
-
+    pets = response.data;
     if (error) {
         displayError();
     }
