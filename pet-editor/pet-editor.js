@@ -40,7 +40,7 @@ petForm.addEventListener('submit', async (e) => {
         // > Part B: add the name, bio, and image_url fields to the pet object
         name: formData.get('name'),
         bio: formData.get('bio'),
-        imgUrl: url,
+        image_url: url,
     };
     const response = await createPet(pet);
     console.log(response);

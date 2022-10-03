@@ -33,7 +33,8 @@ export async function signOutUser() {
 //      - inserts (creates) a supplied pet argument into supabase
 //      - returns a single data object (not an array)
 export async function createPet(pet) {
-    return pet;
+    const response = client.from('pets').insert(pet).single();
+    return response;
 }
 
 // > Part C: Export async function that
